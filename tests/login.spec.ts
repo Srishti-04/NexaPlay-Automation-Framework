@@ -4,6 +4,8 @@ import { LoginPage } from '../pages/LoginPage';
 
 import { InventoryPage } from '../pages/InventoryPage';
 
+import { captureScreenshot } from '../utils/screenshotUtil';
+
 test(
     'Valid Login and Add To Cart Test',
     async ({ page }) => {
@@ -27,5 +29,10 @@ test(
 
         await inventoryPage
             .validateCartBadge();
+
+        await captureScreenshot(
+            page,
+            'successful-login-and-cart'
+        );
     }
 );
